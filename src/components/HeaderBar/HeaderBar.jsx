@@ -1,7 +1,7 @@
 import React from 'react'
 import { IoMailOutline } from "react-icons/io5";
 import { IoIosArrowDown, IoMdHeartEmpty } from "react-icons/io";
-import { MdOutlinePhoneInTalk } from "react-icons/md";
+import { MdOutlinePhoneInTalk } from "react-icons/md"; 
 import { FiUser } from "react-icons/fi";
 import { LuShoppingCart } from "react-icons/lu";
 

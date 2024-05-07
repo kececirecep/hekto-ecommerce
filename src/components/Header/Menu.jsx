@@ -12,7 +12,7 @@ const Menu = () => {
         <NavLink to=""><li className='flex items-center'>Blog </li></NavLink>
         <NavLink to=""><li className='flex items-center'>Shop </li></NavLink>
         <NavLink to=""><li className='flex items-center'>Contact </li></NavLink>
-      </ul>
+      </ul> 
     </nav>
   )
 }

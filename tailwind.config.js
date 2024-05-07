@@ -19,7 +19,11 @@ module.exports = {
         'my-purple': '#7E33E0',
         'my-gray': '#E7E6EF',
         'my-lightpink': '#F2F0FF',
-        'my-subText': '#8A8FB9'
+        'my-subText': '#8A8FB9',
+        'sectionTitle': '#1A0B5B',
+        'productColor': '#F6F7FB',
+        'textBlue': '#151875',
+        'productHover':'#2F1AC4',
       },
     },
   },

@@ -2,7 +2,8 @@
 import './App.css';
 import Header from './components/Header/Header';
 import HeaderBar from './components/HeaderBar/HeaderBar';
-import Hero from './components/Hero/Hero';
+import Featured from './Section/Featured/Featured';
+import Hero from './Section/Hero/Hero';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <HeaderBar/>
       <Header />
       <Hero/>
+      <Featured/>
     </div>
   );
 }
