@@ -1,5 +1,6 @@
 
 import './App.css';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import HeaderBar from './components/HeaderBar/HeaderBar';
 import LeatestBlog from './Section/Home/Blog/LeatestBlog';
@@ -29,6 +30,7 @@ function App() {
       <Newslater />
       <Brands/>
       <LeatestBlog/>
+      <Footer/>
     </div>
   );
 }
