@@ -1,5 +1,5 @@
 import React from 'react'
-import FeaturedProductCard from '../../components/ProductCards/FeaturedProductCard'
+import FeaturedProductCard from '../../../components/ProductCards/FeaturedProductCard'
 
 const Featured = () => {
     return (
