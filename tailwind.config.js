@@ -23,7 +23,8 @@ module.exports = {
         'sectionTitle': '#1A0B5B',
         'productColor': '#F6F7FB',
         'textBlue': '#151875',
-        'productHover':'#2F1AC4',
+        'productHover': '#2F1AC4',
+        'my-orange': '#FF9100'
       },
     },
   },
