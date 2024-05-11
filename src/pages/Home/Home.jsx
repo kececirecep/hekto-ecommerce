@@ -11,8 +11,7 @@ import Discount from '../../Section/Home/Discount/Discount'
 import Newslater from '../../Section/Home/Newslater/Newslater' 
 import Brands from '../../Section/Home/Brands/Brands' 
 import LeatestBlog from '../../Section/Home/Blog/LeatestBlog' 
-import Footer from '../../components/Footer/Footer'
-import FooterBar from '../../components/FooterBar/FooterBar'
+import Footer from '../../components/Footer/Footer' 
 
 
 const Home = () => {
