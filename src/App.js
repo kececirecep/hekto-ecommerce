@@ -9,7 +9,7 @@ import Home from './pages/Home/Home'
 function App() {
   return (
     <div>
-      <ProductDetails />
+      <ShoppingCart />
     </div>
   );
 }
