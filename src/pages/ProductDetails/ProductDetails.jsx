@@ -42,19 +42,17 @@ const ProductDetails = () => {
 
     return (
         <div>
-            <HeaderBar />
-            <Header />
+            {/* <HeaderBar />
+            <Header /> 
             <Breadcrumbs title="Product Details" />
 
             <div className='container mx-auto'>
                 <ProductPageCard />
             </div>
 
-
-
             <div className='bg-[#F9F8FE]'>
                 <div className='container mx-auto py-36'>
-                    <div className='flex items-center gap-16 pb-12'>
+                    <div className='flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-16 pb-4 md:pb-12'>
                         {productTab.map((item, index) => (
                             <div key={index} className='cursor-pointer'>
                                 <div onClick={() => tabClick(index)}>
@@ -71,14 +69,18 @@ const ProductDetails = () => {
                         ))}
                     </div>
                 </div>
-            </div>
+            </div>*/}
 
             <div className="container mx-auto">
-                <TrendingProductCard />
-            </div>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12'>
+                    <TrendingProductCard />
+                    <TrendingProductCard />
+                    <TrendingProductCard /> 
+                </div>
+            </div>{/*  */}
 
             <Brands />
-            <Footer />
+           {/*  <Footer /> */}
         </div>
     );
 }

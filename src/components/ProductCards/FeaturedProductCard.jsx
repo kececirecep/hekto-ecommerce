@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const FeaturedProductCard = (props) => {
     return (
-        <div className='w-[340px] shadow my-12 group hover:bg-productHover duration-150'>
+        <div className='w-full shadow my-12 group hover:bg-productHover duration-150'>
             <div className='flex flex-col justify-center items-center bg-productColor p-10 relative'>
                 <div className='flex items-center gap-4 opacity-0 group-hover:opacity-100 duration-150 absolute top-4 left-4'>
                     <Link to="#" className='bg-[#EEEFFB] p-2 rounded-full text-my-purple'><LuShoppingCart size="22px" /></Link>

@@ -5,7 +5,7 @@ import { LuShoppingCart } from "react-icons/lu";
 
 const LeatesProductCard = (props) => {
     return (
-        <div className='w-[380px] my-12 group'>
+        <div className='w-full my-12 group'>
             <div className='bg-productColor flex justify-center p-8 relative'>
                 <div className='bg-[#3F509E] fnt text-white -rotate-12 px-8 py-1 absolute top-6 left-4 opacity-0 group-hover:opacity-100 duration-150 rounded-tl-lg rounded-br-lg'>
                     Sale

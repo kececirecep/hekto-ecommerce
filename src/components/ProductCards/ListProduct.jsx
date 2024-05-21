@@ -5,9 +5,9 @@ import { LuShoppingCart } from "react-icons/lu";
 
 const ListProduct = () => {
     return (
-        <div className='flex items-center gap-4 shadow p-3'>
+        <div className='flex flex-col md:flex-row items-center gap-4 shadow p-3 mb-4'>
             <div>
-                <img src="/images/list-proImg/list-proImg.png" className='w-[384px] h-[197px]' alt="" />
+                <img src="/images/list-proImg/list-proImg.png" className='w-full h-[197px]' alt="" />
             </div>
             <div className=''>
                 <h2 className='text-textBlue font-bold text-lg fnt'>Dictum morbi</h2>

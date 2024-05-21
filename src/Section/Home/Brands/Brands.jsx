@@ -2,14 +2,13 @@ import React from 'react'
 
 const Brands = () => {
     return (
-        <div className='container mx-auto py-32'>
-            <ul className='flex items-center justify-around gap-12'>
-                <li><img src="/images/brands/brands.png" width="130px" alt="" /></li>
-                <li><img src="/images/brands/brands.png" width="130px" alt="" /></li>
-                <li><img src="/images/brands/brands.png" width="130px" alt="" /></li>
-                <li><img src="/images/brands/brands.png" width="130px" alt="" /></li>
-                <li><img src="/images/brands/brands.png" width="130px" alt="" /></li>
-            </ul>
+        <div className='container mx-auto py-12'>
+            <div className='flex flex-wrap justify-around container gap-4 *:mb-5'>
+                <img src="/images/brands/brands.png" alt="" />
+                <img src="/images/brands/brands.png" alt="" />
+                <img src="/images/brands/brands.png" alt="" />
+                <img src="/images/brands/brands.png" alt="" />
+            </div>
         </div>
     )
 }

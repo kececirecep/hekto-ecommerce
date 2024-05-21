@@ -12,7 +12,7 @@ const BlogCard = (props) => {
     }
 
     return (
-        <div className='w-[400px]'>
+        <div className='w-full'>
             <div className='shadow rounded-lg group'>
                 <img src="/images/blog/blog.png" className='w-full rounded-md' alt="" />
                 <div className='py-8 px-4'>

@@ -4,7 +4,7 @@ import Button from '../../../components/Button/Button'
 const AboutSectionOne = () => {
     return (
         <div className='container mx-auto'>
-            <div className='flex items-center gap-12'>
+            <div className='flex flex-col md:flex-row items-center gap-12'>
                 <img src="/images/about/aboutsection1.png" className='w-[500px] object-cover shadow-2xl' alt="" />
                 <div>
                     <h2 className='text-4xl fnt font-bold text-textBlue pb-4'>Know About Our Ecomerce <br />Business, History</h2>

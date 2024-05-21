@@ -5,8 +5,8 @@ const Featured = () => {
     return (
         <div className='pt-20'>
             <div className='container mx-auto'>
-                <h2 className='text-sectionTitle fnt text-4xl font-bold text-center py-12'>Featured Products</h2>
-                <FeaturedProductCard/>
+                <h2 className='text-sectionTitle fnt text-3xl md:text-4xl font-bold text-center py-4'>Featured Products</h2>
+                <FeaturedProductCard/> 
             </div>
         </div>
     )

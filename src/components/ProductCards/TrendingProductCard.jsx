@@ -6,7 +6,7 @@ import Button from '../Button/Button';
 
 const TrendingProductCard = () => {
     return (
-        <div className='w-[340px] shadow my-12 px-2  '>
+        <div className='w-full shadow px-2'>
             <div className='flex flex-col justify-center items-center bg-productColor p-10 relative my-4 mx-2'>
                 <img src="/images/featured-proImg/featuredProImg.png" className=" w-[178px] h-[178px] object-cover mb-8" alt="" />
             </div>

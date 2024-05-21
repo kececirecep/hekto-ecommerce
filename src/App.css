@@ -9,6 +9,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    --thumb-color: #fb2e86;
+    --track-color: #f7f7f7;
+    --scrollbar-width: 6px;
+    --scrollbar-border-radius: 5px;
+    --scrollbar-thumb-border-width: 0px;
+    --scrollbar-thumb-border-color: #a6a6a6;
 }
 
 body {
@@ -17,4 +23,26 @@ body {
 
 .fnt {
     font-family: "Josefin Sans", sans-serif;
-} 
+}
+
+
+.scrollrec::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+}
+
+.scrollrec::-webkit-scrollbar-track {
+    background: var(--track-color);
+    border-radius: var(--scrollbar-border-radius);
+}
+
+.scrollrec::-webkit-scrollbar-thumb {
+    background: var(--thumb-color);
+    border-radius: var(--scrollbar-border-radius);
+    border: var(--scrollbar-thumb-border-width) solid var(--scrollbar-thumb-border-color);
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    .scrollrec {
+        scrollbar-color: var(--thumb-color) var(--track-color);
+    }
+}

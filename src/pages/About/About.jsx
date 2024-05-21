@@ -11,8 +11,8 @@ import FooterBar from '../../components/FooterBar/FooterBar'
 const About = () => {
     return (
         <div>
-            <HeaderBar />
-            <Header />
+            {/* <HeaderBar />
+            <Header /> */}
             <Breadcrumbs
                 title="About Us" />
             <div className='py-32'>
@@ -21,11 +21,8 @@ const About = () => {
 
             <div className='container mx-auto'>
                 <h2 className='fnt text-4xl font-bold text-center pb-24'>Our Features</h2>
-                <div className='flex items-center gap-8'>
-                    <OfferCard />
-                    <OfferCard />
-                    <OfferCard />
-                    <OfferCard />
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+                    <OfferCard />  
                 </div>
             </div>
 
