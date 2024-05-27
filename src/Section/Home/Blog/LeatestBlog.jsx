@@ -8,6 +8,8 @@ const LeatestBlog = () => {
         <h2 className='text-sectionTitle fnt text-4xl font-bold text-center py-12'>Leatest Blog</h2>
         <div className='grid grid-cols-1 md:grid-cols-3 gap-12'>
           <BlogCard /> 
+          <BlogCard /> 
+          <BlogCard /> 
         </div>
       </div>
     </div>

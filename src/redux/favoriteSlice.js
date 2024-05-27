@@ -19,10 +19,9 @@ export const favoriteSlice = createSlice({
                     icon: '❤️',
                 });
             }
-
         },
         removeToFav(state, action) {
-            state.favoriteArray = state.favoriteArray.filter(item => item.id !== action.payload.id)
+            state.favoriteArray = state.favoriteArray.filter(item => item.id !== action.payload)
             toast.success("Product removed from cart");
         }
     },

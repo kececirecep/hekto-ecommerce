@@ -1,10 +1,11 @@
 import React from 'react'
 import Button from '../Button/Button'
 import { Link } from 'react-router-dom'
-import { IoMdHeartEmpty } from 'react-icons/io'
+import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io'
 import { LuShoppingCart } from "react-icons/lu";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addItemCart } from '../../redux/addToCart';
+import { addToFav } from '../../redux/favoriteSlice';
 
 
 
@@ -12,6 +13,10 @@ import { addItemCart } from '../../redux/addToCart';
 const ProductPageCard = (props) => {
 
     const dispacth = useDispatch()
+
+    const favArray = useSelector((state) => state.favorite.favoriteArray)
+
+
 
     const addToCart = () => {
         dispacth(addItemCart({
@@ -25,6 +30,14 @@ const ProductPageCard = (props) => {
         }))
     }
 
+    const handleAddToFav = () => {
+        dispacth(addToFav({
+            id: props.details.id,
+            title: props.details.title,
+            image: props.details.image,
+            price: props.details.price
+        }))
+    }
 
 
     return (
@@ -41,7 +54,11 @@ const ProductPageCard = (props) => {
                     <p className='text-my-subText fnt text-lg py-5 first-letter:uppercase'>{props.product.description}</p>
                     <div className='flex items-center gap-4 mb-4'>
                         <div className='shadow p-2 rounded-full text-[#535399] cursor-pointer' onClick={() => addToCart()}><LuShoppingCart size="20px" /></div>
-                        <Link to="#" className='shadow p-2 rounded-full text-[#535399]'><IoMdHeartEmpty size="20px" fontWeight="700" /></Link>
+                        <div className='shadow p-2 rounded-full text-[#535399] cursor-pointer' onClick={() => handleAddToFav()}>
+                            {
+                                favArray.find((item) => item.id == props.details.id) ? <IoMdHeart className="text-my-pink" size="20px" fontWeight="700" /> : <IoMdHeartEmpty size="20px" fontWeight="700" />
+                            }
+                        </div>
                     </div>
                     <div className='flex items-center gap-2'>
                         <h6 className='text-textBlue fnt text-base font-semibold'>Categories:</h6>

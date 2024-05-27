@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdHeartEmpty, IoMdHeart } from "react-icons/io";
 import { LuShoppingCart } from "react-icons/lu";
 
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
@@ -22,6 +22,9 @@ const ListProduct = (props) => {
 
     const dispacth = useDispatch()
 
+    const favArray = useSelector((state) => state.favorite.favoriteArray)
+
+
     const addToCart = () => {
         dispacth(addItemCart({
             id: props.details.id,
@@ -38,6 +41,7 @@ const ListProduct = (props) => {
             id: props.details.id,
             title: props.details.title,
             image: props.details.image,
+            price: props.details.price
         }))
     }
 
@@ -54,13 +58,18 @@ const ListProduct = (props) => {
                             <img src={props.details.image} className='md:min-w-[200px] md:max-w-[200px] h-[197px] object-contain' alt="" />
                         </Link>
                         <div className=''>
-                            <Link to={`/product-details/${props.details.id}`}><h2 className='text-textBlue font-bold text-lg fnt'>{props.details.title}</h2></Link> 
+                            <Link to={`/product-details/${props.details.id}`}><h2 className='text-textBlue font-bold text-lg fnt'>{props.details.title}</h2></Link>
                             <span className='flex items-center fnt text-textBlue gap-2'>${props.details.price} <h6 className='text-my-pink line-through'>${(props.details.price + 10).toFixed(2)}</h6></span>
                             <p className='text-my-subText py-3'>{props.details.description}</p>
                             <p className='text-my-subText py-3'><span className='font-semibold text-my-subText'>Categories:</span> {props.details.category}</p>
                             <div className='flex items-center gap-4 '>
                                 <Link to="#" className='shadow p-2 rounded-full text-[#535399]' onClick={() => addToCart()}><LuShoppingCart size="16px" /></Link>
-                                <Link to="#" className='shadow p-2 rounded-full text-[#535399]' onClick={() => handleAddToFav()}><IoMdHeartEmpty size="16px" /></Link>
+
+                                <Link to="#" className='shadow p-2 rounded-full text-[#535399]' onClick={() => handleAddToFav()}>
+                                    {
+                                        favArray.find((item) => item.id == props.details.id) ? <IoMdHeart className="text-my-pink" size="20px" fontWeight="700" /> : <IoMdHeartEmpty size="20px" fontWeight="700" />
+                                    }
+                                </Link>
                             </div>
                         </div>
                     </>

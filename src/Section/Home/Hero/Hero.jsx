@@ -11,7 +11,8 @@ const Hero = () => {
                     <p className='text-my-subText font-bold text-lg mb-8'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing in phasellus non in justo.</p>
                     <Button
                         className="bg-my-pink px-6 py-3 rounded-sm text-white fnt font-semibold"
-                        title="Shop Now" />
+                        title="Shop Now"
+                        link="/products" />
                 </div>
                 <img src="/images/hero.png" className='w-[600px] h-[500px] object-cover hidden lg:block' alt="" />
             </div>

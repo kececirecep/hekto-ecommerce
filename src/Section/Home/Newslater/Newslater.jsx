@@ -18,7 +18,8 @@ const Newslater = () => {
                 <h1 className='text-4xl text-textBlue font-bold fnt text-center mb-12'>Get Leatest Update By Subscribe<br /> 0ur Newslater  </h1>
                 <Button
                     className="bg-my-pink px-8 py-2 rounded text-white font-bold"
-                    title="Shop Now" />
+                    title="Shop Now"
+                    link="/products" />
             </div>
         </div>
     );

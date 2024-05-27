@@ -24,7 +24,8 @@ const Unique = () => {
                         <div className='flex items-center gap-6'>
                             <Button
                                 className="bg-my-pink px-6 py-3 rounded text-white fnt text-lg font-semibold"
-                                title="Add To Cart" />
+                                title="Product View"
+                                link="/products" />
                             <div className='fnt text-base'>
                                 <h4>B&B Italian Sofa </h4>
                                 <span>$32.00</span>

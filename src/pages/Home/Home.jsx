@@ -5,8 +5,7 @@ import Hero from '../../Section/Home/Hero/Hero'
 import Featured from '../../Section/Home/Featured/Featured'
 import Leatest from '../../Section/Home/Leatest/Leatest'
 import ShopexOffer from '../../Section/Home/ShopexOffer/ShopexOffer'
-import Unique from '../../Section/Home/Unique/Unique'
-import Trending from '../../Section/Home/Trending/Trending'
+import Unique from '../../Section/Home/Unique/Unique' 
 import Discount from '../../Section/Home/Discount/Discount'
 import Newslater from '../../Section/Home/Newslater/Newslater'
 import Brands from '../../Section/Home/Brands/Brands'
@@ -22,9 +21,8 @@ const Home = () => {
             <Hero />
             <Featured />
             <Leatest />
+            <Unique /> 
             <ShopexOffer />
-            <Unique />
-            <Trending />
             <Discount />
             <Newslater />
             <Brands />

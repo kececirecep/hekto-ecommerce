@@ -14,12 +14,8 @@ const FavoriteProducts = (props) => {
     const dispacth = useDispatch()
 
 
-    const handleDeleteToFav = () => {
-        dispacth(removeToFav({
-            id: props.details.id,
-            title: props.details.title,
-            image: props.details.image,
-        }))
+    const handleDeleteToFav = (id) => {
+        dispacth(removeToFav(id))
     }
 
 
@@ -44,11 +40,11 @@ const FavoriteProducts = (props) => {
                         allFavItem.map((item, index) => {
                             return (
                                 <div key={index} className='flex flex-col items-start justify-center shadow p-4 rounded-xl'>
-                                    <img src={item.image} alt="" className='w-64 h-64 object-contain  ' />
-                                    <h2 className='fnt font-semibold line-clamp-1 w-52 mt-4'>{item.title}</h2>
+                                    <Link to={`/product-details/${item.id}`}><img src={item.image} alt="" className='w-64 h-64 object-contain  ' /></Link>
+                                    <Link to={`/product-details/${item.id}`}><h2 className='fnt font-semibold line-clamp-1 w-52 mt-4'>{item.title}</h2></Link>
                                     <div className='flex items-center justify-between w-full text-xl mt-2'>
                                         <span>${item.price || 0}</span>
-                                        <div onClick={() => handleDeleteToFav()}><IoMdHeart className='text-my-pink' size="20px" /></div>
+                                        <div onClick={() => handleDeleteToFav(item.id)}><IoMdHeart className='text-my-pink cursor-pointer' size="20px" /></div>
                                     </div>
                                 </div>
                             )
