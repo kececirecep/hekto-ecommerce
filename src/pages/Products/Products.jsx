@@ -30,11 +30,9 @@ const Products = () => {
 
     const handleMin = (e) => {
         setMinPrice(e.target.value)
-        console.log(minPrice);
     }
     const handleMax = (e) => {
         setMaxPrice(e.target.value)
-        console.log(maxPrice);
     }
 
 

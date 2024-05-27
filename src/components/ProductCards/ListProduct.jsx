@@ -18,7 +18,7 @@ const ListProduct = (props) => {
 
     const loading = useSelector((state) => state.getProducts.loading)
 
-    console.log(props.details.id);
+     
 
     const dispacth = useDispatch()
 

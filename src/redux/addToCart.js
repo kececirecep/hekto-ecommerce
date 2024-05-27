@@ -20,8 +20,7 @@ export const cartSlice = createSlice({
                 gelenItem.adet += 1;
             } else {
                 state.cart.push(newItem)
-            }
-            
+            } 
             toast.success("Product Added to Cart");
         },
         removeItemCart(state, action) {

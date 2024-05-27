@@ -26,11 +26,7 @@ const Leatest = () => {
             setRandomArray(newArray)
         }
 
-    }, [allProduct])
-
-
-
-    console.log(randomArray);
+    }, [allProduct]) 
 
 
     return (

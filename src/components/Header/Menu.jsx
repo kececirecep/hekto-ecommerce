@@ -48,10 +48,10 @@ const Menu = () => {
             })
           }
           <div className='flex items-center gap-4 mt-12'>
-            <span className='flex items-center gap-1 text-my-pink'>
+            <Link to="/favorite-products" className='flex items-center gap-1 text-my-pink'>
               {favArray.length >= 1 ? <IoMdHeart size="26px" /> : <IoMdHeartEmpty size="26px" />}
-            </span>
-            <span className='flex items-center gap-1'><LuShoppingCart size="26px" /></span>
+            </Link>
+            <Link to="/shopping-cart" className='flex items-center gap-1'><LuShoppingCart size="26px" /></Link>
           </div>
         </ul>
       </div>
