@@ -14,6 +14,17 @@ import { useDispatch, useSelector } from 'react-redux';
 const Products = () => {
     const [searchValue, setSearchValue] = useState("");
 
+    const [selectedCategories, setSelectedCategories] = useState([]);
+
+    const handleCategoryToggle = (category) => {
+        if (selectedCategories.includes(category)) {
+            setSelectedCategories(selectedCategories.filter(item => item !== category))
+        } else {
+            const newS = [...selectedCategories, category]
+            setSelectedCategories(newS)
+        }
+    }
+
     const [minPrice, setMinPrice] = useState(1);
     const [maxPrice, setMaxPrice] = useState(999999);
 
@@ -70,11 +81,31 @@ const Products = () => {
                                     type="number" min="2" value={maxPrice} className='border border-my-gray outline-none p-2 w-full' placeholder='max' />
                             </div>
                         </div>
-                        <Filter
-                            title="Product Brand"
-                            labelTitle="Coaster Furniture"
-                            className="accent-[#ffdbe7] focus:accent-my-pink"
-                        />
+                        <h4 className='fnt text-textBlue text-lg'>Categories:</h4>
+                        <label className='flex ites-center gap-2 pt-2'>
+                            <input
+                                onChange={() => handleCategoryToggle("men's clothing")} checked={selectedCategories.includes("men's clothing")}
+                                type="checkbox" id="check" className="accent-[#ffdbe7] focus:accent-my-pink" />
+                            <span className='capitalize text-my-subText font-[400] '>men's clothing</span>
+                        </label>
+                        <label className='flex ites-center gap-2 pt-2'>
+                            <input
+                                onChange={() => handleCategoryToggle("jewelery")} checked={selectedCategories.includes("jewelery")}
+                                type="checkbox" id="check" className="accent-[#ffdbe7] focus:accent-my-pink" />
+                            <span className='capitalize text-my-subText font-[400] '>jewelery</span>
+                        </label>
+                        <label className='flex ites-center gap-2 pt-2'>
+                            <input
+                                onChange={() => handleCategoryToggle("electronics")} checked={selectedCategories.includes("electronics")}
+                                type="checkbox" id="check" className="accent-[#ffdbe7] focus:accent-my-pink" />
+                            <span className='capitalize text-my-subText font-[400] '>electronics</span>
+                        </label>
+                        <label className='flex ites-center gap-2 pt-2'>
+                            <input
+                                onChange={() => handleCategoryToggle("women's clothing")} checked={selectedCategories.includes("women's clothing")}
+                                type="checkbox" id="check" className="accent-[#ffdbe7] focus:accent-my-pink" />
+                            <span className='capitalize text-my-subText font-[400] '>women's clothing</span>
+                        </label>
                     </div>
                     <div className='col-span-8 md:col-span-6'>
                         {
@@ -82,6 +113,7 @@ const Products = () => {
                             allProducts.data
                                 .filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()))
                                 .filter(item => item.price >= minPrice && item.price <= maxPrice)
+                                .filter(item => selectedCategories.length == 0 || selectedCategories.includes(item.category))
                                 .map((item, index) => {
                                     return (
                                         <ListProduct key={index} details={item} />
