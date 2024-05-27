@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import HeaderBar from '../../components/HeaderBar/HeaderBar'
 import Header from '../../components/Header/Header'
@@ -12,12 +12,33 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 const Products = () => {
-    const dispacth = useDispatch()
+    const [searchValue, setSearchValue] = useState("");
+
+    const [minPrice, setMinPrice] = useState(1);
+    const [maxPrice, setMaxPrice] = useState(999999);
+
+    const handleMin = (e) => {
+        setMinPrice(e.target.value)
+        console.log(minPrice);
+    }
+    const handleMax = (e) => {
+        setMaxPrice(e.target.value)
+        console.log(maxPrice);
+    }
+
+
+
+    const handleSearchValue = (event) => {
+        setSearchValue(event.target.value)
+    }
+
+
+    const dispatch = useDispatch()
     const allProducts = useSelector((state) => state.getProducts)
 
 
     useEffect(() => {
-        dispacth(getProducts())
+        dispatch(getProducts())
     }, [])
 
     return (
@@ -35,7 +56,19 @@ const Products = () => {
                 <div className='grid grid-cols-8 gap-4'>
                     <div className='col-span-8 md:col-span-2'>
                         <div className='mb-4'>
-                            <Search />
+                            <Search onChange={handleSearchValue} text={searchValue} />
+                        </div>
+                        <div className='flex flex-col md:flex-row items-start gap-4 mb-4'>
+                            <div>
+                                <h6 className='fnt text-textBlue'>Min.</h6>
+                                <input onChange={(e) => handleMin(e)}
+                                    type="number" min="1" value={minPrice} className='border border-my-gray outline-none p-2 w-full' placeholder='min' />
+                            </div>
+                            <div>
+                                <h6 className='fnt text-textBlue'>Max.</h6>
+                                <input onChange={(e) => handleMax(e)}
+                                    type="number" min="2" value={maxPrice} className='border border-my-gray outline-none p-2 w-full' placeholder='max' />
+                            </div>
                         </div>
                         <Filter
                             title="Product Brand"
@@ -45,12 +78,15 @@ const Products = () => {
                     </div>
                     <div className='col-span-8 md:col-span-6'>
                         {
-                            allProducts.loading == false &&
-                            allProducts.data.map((item, index) => {
-                                return (
-                                    <ListProduct key={index} details={item} />
-                                )
-                            })
+                            allProducts.data &&
+                            allProducts.data
+                                .filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()))
+                                .filter(item => item.price >= minPrice && item.price <= maxPrice)
+                                .map((item, index) => {
+                                    return (
+                                        <ListProduct key={index} details={item} />
+                                    )
+                                })
                         }
                     </div>
                 </div>
