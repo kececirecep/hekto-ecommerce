@@ -1,16 +1,15 @@
 import React from 'react'
 import HeaderBar from '../../components/HeaderBar/HeaderBar'
 import Header from '../../components/Header/Header'
-import Footer from '../../components/Footer/Footer'
-import FooterBar from '../../components/FooterBar/FooterBar'
+import Footer from '../../components/Footer/Footer' 
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import ContactForm from '../../components/ContactForm/ContactForm'
 
 const Contact = () => {
     return (
         <div>
-            {/* <HeaderBar />
-            <Header /> */}
+            <HeaderBar />
+            <Header />
             <Breadcrumbs
                 title="Contact Us" />
             <div className='container mx-auto py-32 grid grid-cols-1 md:grid-cols-2 justify-items-between '>

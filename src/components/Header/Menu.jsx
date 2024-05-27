@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { LuShoppingCart } from "react-icons/lu";
-import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCloseCircleOutline, IoClose } from "react-icons/io5";
+import { useSelector } from 'react-redux';
+
 
 const Menu = () => {
+  const allCartItems = useSelector((state) => state.cart)
+  const favArray = useSelector((state) => state.favorite.favoriteArray)
+
+
   const [mobileMenuToggle, setMobileMenuToggle] = useState(false);
 
   const menuContent = [
@@ -14,13 +20,13 @@ const Menu = () => {
       url: "/",
     }, {
       text: "About",
-      url: "/",
+      url: "/about",
     }, {
-      text: "Pricing",
-      url: "/",
+      text: "Products",
+      url: "/products",
     }, {
-      text: "Blog",
-      url: "/",
+      text: "Contact",
+      url: "/contact",
     },
   ]
 
@@ -37,12 +43,14 @@ const Menu = () => {
           {
             menuContent.map((item, index) => {
               return (
-                <NavLink to="" key={index}><li className='flex items-center py-4 hover:text-my-pink duration-200'>{item.text}</li></NavLink>
+                <NavLink to={item.url} key={index}><li className='flex items-center py-4 hover:text-my-pink duration-200'>{item.text}</li></NavLink>
               )
             })
           }
           <div className='flex items-center gap-4 mt-12'>
-            <span className='flex items-center gap-1 text-my-pink'><IoMdHeartEmpty size="26px" /></span>
+            <span className='flex items-center gap-1 text-my-pink'>
+              {favArray.length >= 1 ? <IoMdHeart size="26px" /> : <IoMdHeartEmpty size="26px" />}
+            </span>
             <span className='flex items-center gap-1'><LuShoppingCart size="26px" /></span>
           </div>
         </ul>
@@ -52,12 +60,21 @@ const Menu = () => {
           {
             menuContent.map((item, index) => {
               return (
-                <NavLink to="" key={index}><li className='flex items-center'>{item.text}</li></NavLink>
+                <NavLink to={item.url} key={index}><li className='flex items-center'>{item.text}</li></NavLink>
               )
             })
           }
-          <span className='flex items-center gap-1 text-my-pink'><IoMdHeartEmpty size="22px" /></span>
-          <span className='flex items-center gap-1'><LuShoppingCart size="22px" /></span>
+          <Link to="/favorite-products" className='flex items-center gap-1 text-my-pink'>
+            {favArray.length >= 1 ? <IoMdHeart size="26px" /> : <IoMdHeartEmpty size="26px" />}
+          </Link>
+          <Link to="/shopping-cart" className='relative'>
+            <LuShoppingCart size={24} className="text-bodyTextColor" />
+            <span className="absolute -top-2 -right-2 bg-my-pink rounded-full text-white w-[20px] h-[20px] flex items-center justify-center text-[12px]">
+              {allCartItems.cart.length || 0}
+            </span>
+          </Link>
+
+
         </ul>
       </nav>
 

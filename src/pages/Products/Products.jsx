@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import Breadcrumbs from '../../components/breadcrumbs/Breadcrumbs'
 import HeaderBar from '../../components/HeaderBar/HeaderBar'
 import Header from '../../components/Header/Header'
@@ -7,11 +7,23 @@ import Filter from '../../components/Filter/Filter'
 import ListProduct from '../../components/ProductCards/ListProduct'
 import Search from '../../components/Header/Search'
 
+import { getProducts } from '../../redux/getProducts'
+import { useDispatch, useSelector } from 'react-redux';
+
+
 const Products = () => {
+    const dispacth = useDispatch()
+    const allProducts = useSelector((state) => state.getProducts)
+
+
+    useEffect(() => {
+        dispacth(getProducts())
+    }, [])
+
     return (
         <div>
-            {/* <HeaderBar />
-            <Header /> */}
+            <HeaderBar />
+            <Header />
             <Breadcrumbs
                 title="Shop Grid Default" />
 
@@ -32,10 +44,14 @@ const Products = () => {
                         />
                     </div>
                     <div className='col-span-8 md:col-span-6'>
-                        <ListProduct />
-                        <ListProduct />
-                        <ListProduct />
-                        <ListProduct />
+                        {
+                            allProducts.loading == false &&
+                            allProducts.data.map((item, index) => {
+                                return (
+                                    <ListProduct key={index} details={item} />
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>
